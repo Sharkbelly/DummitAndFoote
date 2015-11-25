@@ -1,0 +1,24 @@
+\usepackage[utf8]{inputenc}
+\usepackage[top=1in, bottom=1in, left=0.75in, right=0.75in]{geometry}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks,
+	citecolor=black,
+	filecolor=black,
+	urlcolor=black,
+	linktoc=all
+}
+
+\usepackage{titlesec}
+\usepackage{lipsum}
+
+\titleformat{\chapter}[display]
+{\normalfont\huge\bfseries\filcenter}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+\titlespacing*{\chapter}
+{0pt}{10pt}{20pt}
+
+\newcommand{\sectionbreak}{\clearpage}
