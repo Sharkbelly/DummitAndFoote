@@ -273,7 +273,15 @@ and let $\mathcal{B} =\left\{X\in \mathcal{A}| MX = XM\right\}$
 		If $m$ is even, then $8|4m$; otherwise, $8(m+1)$.  This proves that $4m(m+1) \equiv 0 \pmod 8$, so $n = 4m(m+1) + 1\equiv 1 \pmod 8$.
 	\end{proof}
 	\item Prove that the number of elements of $(\intgp{n})^\times$ is $\psi(n)$.
+	\begin{proof}
+		The number of elements of $(\intgp{n})^\times$ is the number of residue classes of $\intgp{n}$ which have multiplicative inverses.  Recall that $(\intgp{n})^\times = \left\{ \res{a}\in\intgp{n}|(a,n) = 1 \right\}$.  The number of elements of this set is the number of positive integers relatively prime to $n$, i.e. $\phi(n)$.
+	\end{proof}
 	\item Prove that if $\res{a},\res{b}\in(\intgp{n})^\times$, then $\res{a}\cdot\res{b}\in(\intgp{n})^\times$.
+	\begin{proof}
+		Let $\res{a},\res{b}\in\intgp{n}$.  Then there exist $\res{a'}$ and $\res{b'}$ in $\intgp{n}$ such that $\res{a}\cdot\res{a'} = \res{1}$ and $\res{b}\cdot\res{b'} = \res{1}$.  Since $\intgp{n}$ is closed under multiplication, $\res{b'}\cdot\res{a'} \in \intgp{n}$.  Consider
+		$$\res{a}\cdot\res{b}\cdot \res{b'}\cdot\res{a'} = \res{a}\cdot\res{1}\cdot\res{a'} = \res{a}\cdot\res{a'} = \res{1}$$
+		We have found an element of $(\intgp{n})^\times$ which is the multiplicative inverse of $\res{a}\cdot\res{b}$; therefore, $\res{a}\cdot\res{b}\in(\intgp{n})^\times$.
+	\end{proof}
 	\item Let $n\in\integers$, $n>1$, and let $a\in\integers$ with $1\leq a \leq n$.  Prove if $a$ and $n$ are not relatively prime, there exists an integer $b$ with $1\leq b<n$ such that $ab\equiv 0 \pmod n$ and there cannot be an integer $c$ such that $ac\equiv 1 \pmod n$.
 	\begin{proof}
 		Let $n\in\integers,n>1$ and $a\in\integers,1\leq a\leq n$.
@@ -281,6 +289,8 @@ and let $\mathcal{B} =\left\{X\in \mathcal{A}| MX = XM\right\}$
 		Let $b$ be such a number.  
 		Then consider $b\cdot a$.  
 		Since $b|n$, $b \cdot a \equiv \res{0} \pmod n$.
+		
+		\emph{COME BACK TO THIS}
 		
 	\end{proof}
 	\item Let $n\in\integers$, $n>1$, and let $a\in\integers$ with $1\leq a \leq n$.  Prove that if $a$ and $n$ are relatively prime then there is an integer $c$ such that $ac\equiv 1\pmod n$.
