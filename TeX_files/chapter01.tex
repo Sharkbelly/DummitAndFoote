@@ -192,15 +192,43 @@ Let $G$ be a group.
 		\item Let $G=\left\{x\in\reals|0\leq x<1 \right\}$ and for $x,y\in G$, let $x\star y$ be the fractional part of $x+y$.  Prove that $\star$ is a well defined binary operation on $G$ and $G$ is an abelian group under $\star$ (called the \emph{real numbers $\pmod 1$}).
 		\begin{proof}
 			Let $x,y\in G$.  Observe that since $x,y<1$, either $\lfloor x+y \rfloor = 0$ or $\lfloor x+y \rfloor =1$.  If $x+y<1$, then $x\star y = x+y \in G$.  Otherwise, since $x,y\in G$, $x+y<2$, so $\lfloor x+y \rfloor = 1$, and $x\star y = x+y - 1 <1 \in G$.\\
+			The additive identity is $0$, since $0\in G$ and $x+0 = x\in G$ for all $x\in G$.\\
+			Let $x\in G$.  Either $x=0$ or $0<x<1$.  If $x=0$, then $x^{-1} = 0\in G$ because $0+0=0$.  If $x\neq 0$, then $x^{-1} = 1-x$.  To see this, first note that $x-1\in G$  This follows from $0<x<1$.  Now observe $x\star (x-1) = x+(1-x) - \lfloor x+(1-x)\rfloor = 1-\lfloor 1\rfloor = 1-1 = 0$.
+			Associativity can be shown as follows:
+			\begin{align*}
+				a\star (b \star c) &= a+b+c-\lfloor b + c \rfloor - \lfloor a+b+c - \lfloor b+c\rfloor\rfloor\\
+				& a+b+c-\lfloor a+b+c\rfloor\\
+				& a+b+c-\lfloor a + b \rfloor -\lfloor a+b+c-\lfloor a+b\rfloor\rfloor\\
+				& = (a\star b)\star c
+			\end{align*}  
+			Commutativity holds over all integers.  Observe that $x\star y = x+y - \lfloor x+y\rfloor = y+x - \lfloor y+x\rfloor = y\star x$.\\
+			It is proven that this is an abelian group.
 			
 		\end{proof}
 		\item Let $G = \left\{z\in \complexs | z^n = 1 \text{ for some }n\in\integers\plus \right\}$.
 		\begin{enumerate}
 			\item Prove that $G$ is a group under multiplication (called the \emph{group of roots of unity in $\complexs$}).
 			\begin{proof}
+				Let $z_1, z_2 \in G$.  Then there exist $n_1,n_2\in\integers\plus$ such that $z_1^{n_1} = z_2^{n_2} = 1$.  Let $n = n_1n_2$.  Then $(z_1\cdot z_2)^n = z_1^n z_2^n = z_1^{n_1n_2}z_2^{n_1n_2} = (z_1^{n_1})^{n_2}(z_2^{n_2})^{n_1} = 1^{n_2}1^{n_1}=1$, so the set is closed under the operation of multiplication.\\
+				We will show that $e=1$ is the identity.  First, we must show that $1\in G$ which follows trivially because $1^n = 1$ for any $n\in \integers\plus$.  Then since for any $z\in \complexs$, $z\cdot 1 = 1\cdot z = z$, we see that $1$ is the identity element.\\
+				Let $z_1=a+bi, z_2=c+di, z_3=f+gi \in G$.  Consider 
+				\begin{align*}
+					z_1(z_2z_3) &= (a+bi)[(c+di)(f+gi)]\\
+					& (a+bi)[(cf-dg)+(df+cg)i]\\
+					& acf-adg -bdf-bcd+(bcf-bdg+adf+acg)i
+				\end{align*}
+				Similarly
+				\begin{align*}
+					(z_1z_2)z_3 &= [(a+bi)(c+di)](f+gi)\\
+					&=[(ac-bd)+(bc+ad)i](f+gi)\\
+					&=acf-bdf-bcg-adg+(fbc+fad+gac-gbd)i
+				\end{align*}
+				Down to rearrangement, these are equivalent, so the operation is associative.\\
+				Letting $z\in G$, the inverse of $z$ is $\frac{1}{z}$.  To see this, note that $z\cdot\frac{1}{z} = \frac{z}{z} = \frac{1}{z}z = 1$.  For such $z$, there exists $n\in \integers\plus$, so consider $\left(\frac{1}{z}\right)^n = \frac{1^n}{z^n} = \frac{1}{1} = 1$.  Thus the inverse of $z\in G$ is also in $G$.
 			\end{proof}
 			\item Prove that $G$ is not a group under addition.
 			\begin{proof}
+				Note: $1\in G$, but $1+1 = 2$ and for no positive power of $n$ is $2^n = 1$.  So the group is not closed under addition.
 			\end{proof}
 		\end{enumerate}
 		\item Let $G = \left\{ a+b\sqrt{2}\in\reals|a,b\in\rationals \right\}$.
